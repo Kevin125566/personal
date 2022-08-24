@@ -1,4 +1,8 @@
 const sections = document.querySelectorAll('.sections');
+const asides = document.querySelectorAll('aside');
+const main = document.querySelector('h1');
+const bars = document.querySelectorAll('.bar-container');
+const backgroundFade = document.querySelector('.background-fade');
 
 for (let section of sections) {
     section.addEventListener("mouseenter", () => {
@@ -10,11 +14,26 @@ for (let section of sections) {
         const arrow = section.querySelector('span');
         arrow.style.visibility = "hidden";
     });
-}
 
-const main = document.querySelector('h1');
+    section.addEventListener("click", () => {
+        const asideName = section.className.split(" ")[0];
+        for (let aside of asides) {
+            if (aside.className.includes(asideName)) {
+                aside.style.right = 0 + "%";
+                backgroundFade.style.visibility = "visible";
+                break;
+            }
+        }
+    });
+}
 
 window.addEventListener('scroll', () => {
     main.style.top = 0.02*window.scrollY + "vh";
-    console.log('wasdwasd');
 });
+
+for (let bar of bars) {
+    bar.addEventListener('click', () => {
+        bar.parentElement.style.right = -50 + "%";
+        backgroundFade.style.visibility = "hidden";
+    });
+}

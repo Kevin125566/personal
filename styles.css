@@ -33,10 +33,10 @@ h2, .arrow {
 .sections {
     display: flex;
     margin: 8em 12em;
-    /* font-size: 150px; */
     text-transform: uppercase;
     cursor: pointer;
     justify-content: space-between;
+    color: #181d12;
 }
 
 .sections:hover {
@@ -53,6 +53,53 @@ section {
     height: fit-content;
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
     align-content: space-between;
+}
+
+aside {
+    height: 100vh;
+    width: 43vw;
+    position: fixed;
+    color: rgb(235, 235, 235);
+    right: -50%;
+    top: 0;
+    z-index: 300;
+    background-color: #181d12;
+    transition: all 0.7s;
+    overflow-y: auto;
+}
+
+.background-fade {
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    z-index: 200;
+    background-color: #181d12;
+    opacity: 20%;
+    visibility: hidden;
+}
+
+.bar {
+    width: 50px;
+    height: 2px;
+    background-color: rgb(235, 235, 235);
+    position: absolute;
+    right:0;
+}
+
+.bar1 {
+    transform: rotate(45deg);
+}
+
+.bar2 {
+    transform: rotate(-45deg);
+}
+
+.bar-container {
+    cursor: pointer;
+    position: absolute;
+    padding: 2em;
+    right: 2%;
+    top: 1%;
 }
