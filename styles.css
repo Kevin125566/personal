@@ -1,0 +1,58 @@
+html {
+    font-family: 'Robot', sans-serif;
+}
+
+body {
+    margin: 0;
+    background-color: rgb(235, 235, 235);
+}
+
+main {
+    display: flex;
+    align-items: center;
+    background-color: #181d12;
+    height: 90vh;
+}
+
+h1 {
+    margin: 0;
+    color: rgb(235, 235, 235);
+    text-align: center;
+    font-size: 150px;
+    text-transform: uppercase;
+    word-spacing: 100vw;
+    position: relative;
+}
+
+h2, .arrow {
+    display: inline-block;
+    font-size: 150px;
+    margin: 0;
+}
+
+.sections {
+    display: flex;
+    margin: 8em 12em;
+    /* font-size: 150px; */
+    text-transform: uppercase;
+    cursor: pointer;
+    justify-content: space-between;
+}
+
+.sections:hover {
+    color: rgb(235, 235, 235);
+    text-shadow: -1px 0 #181d12, 0 1px #181d12, 1px 0 #181d12, 0 -1px #181d12;
+}
+
+.arrow {
+    color: #181d12;
+    visibility: hidden;
+}
+
+section {
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-content: space-between;
+}
