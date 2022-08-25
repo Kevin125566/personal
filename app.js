@@ -4,6 +4,13 @@ const main = document.querySelector('h1');
 const bars = document.querySelectorAll('.bar-container');
 const backgroundFade = document.querySelector('.background-fade');
 
+// maybe
+
+// $(document).ready(function() {
+//     main.style.opacity = 100;
+//     main.style.fontSize = 150 + "px";
+// });
+
 for (let section of sections) {
     section.addEventListener("mouseenter", () => {
         const arrow = section.querySelector('span');
@@ -37,3 +44,10 @@ for (let bar of bars) {
         backgroundFade.style.visibility = "hidden";
     });
 }
+
+backgroundFade.addEventListener('click', () => {
+    for (let aside of asides) {
+        aside.style.right = -50 + '%';
+    }
+    backgroundFade.style.visibility = "hidden";
+});
