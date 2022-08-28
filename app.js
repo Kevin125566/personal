@@ -4,13 +4,6 @@ const main = document.querySelector('h1');
 const bars = document.querySelectorAll('.bar-container');
 const backgroundFade = document.querySelector('.background-fade');
 
-// maybe
-
-// $(document).ready(function() {
-//     main.style.opacity = 100;
-//     main.style.fontSize = 150 + "px";
-// });
-
 for (let section of sections) {
     section.addEventListener("mouseenter", () => {
         const arrow = section.querySelector('span');
@@ -36,6 +29,12 @@ for (let section of sections) {
 
 window.addEventListener('scroll', () => {
     main.style.top = 0.02*window.scrollY + "vh";
+
+    sections.forEach(section => {
+        if (isInViewport(section)) {
+            $(section).addClass('section-show');
+        }
+    });
 });
 
 for (let bar of bars) {
@@ -51,3 +50,13 @@ backgroundFade.addEventListener('click', () => {
     }
     backgroundFade.style.visibility = "hidden";
 });
+
+function isInViewport(element) {
+    const rect = element.getBoundingClientRect();
+    return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || DocumentType.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+}

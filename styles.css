@@ -1,5 +1,6 @@
 html {
     font-family: 'Robot', sans-serif;
+    box-sizing: border-box;
 }
 
 body {
@@ -9,6 +10,7 @@ body {
 
 main {
     display: flex;
+    justify-content: center;
     align-items: center;
     background-color: #181d12;
     height: 90vh;
@@ -24,6 +26,37 @@ h1 {
     position: relative;
 }
 
+.word-container {
+    overflow: hidden;
+}
+
+@keyframes up {
+    100% {
+        transform: translateY(0%);
+    }
+}
+
+.word {
+    animation: up 0.8s;
+    animation-delay: 1.2s;
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+    transform: translateY(115%);
+}
+
+h1 .word-container:nth-child(2) .word {
+    animation-delay: 1.35s;
+}
+
+h1 .word-container:nth-child(3) .word {
+    animation-delay: 1.5s;
+}
+
+h1 .word-container:nth-child(4) .word {
+    animation-delay: 1.65s;
+}
+
+
 h2, .arrow {
     display: inline-block;
     font-size: 150px;
@@ -37,11 +70,19 @@ h2, .arrow {
     cursor: pointer;
     justify-content: space-between;
     color: #181d12;
+    opacity: 0;
+    transform: translateY(5em);
 }
 
 .sections:hover {
     color: rgb(235, 235, 235);
     text-shadow: -1px 0 #181d12, 0 1px #181d12, 1px 0 #181d12, 0 -1px #181d12;
+}
+
+.section-show {
+    transition: opacity 0.8s, transform 0.8s;
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .arrow {
@@ -65,7 +106,7 @@ aside {
     top: 0;
     z-index: 300;
     background-color: #181d12;
-    transition: all 0.7s;
+    transition: right 0.5s;
     overflow-y: auto;
 }
 
@@ -102,4 +143,16 @@ aside {
     padding: 2em;
     right: 2%;
     top: 1%;
+}
+
+@media (max-width: 1575px) {
+    h1, h2, .arrow {
+        font-size: 130px;
+    }
+}
+
+@media (max-width: 1375px) {
+    h1, h2, .arrow {
+        font-size: 120px;
+    }
 }
