@@ -3,6 +3,7 @@ const asides = document.querySelectorAll('aside');
 const main = document.querySelector('h1');
 const bars = document.querySelectorAll('.bar-container');
 const backgroundFade = document.querySelector('.background-fade');
+const hBar = document.querySelector('.h3-bar');
 
 for (let section of sections) {
     section.addEventListener("mouseenter", () => {
@@ -21,6 +22,8 @@ for (let section of sections) {
             if (aside.className.includes(asideName)) {
                 aside.style.right = 0 + "%";
                 backgroundFade.style.visibility = "visible";
+
+                $(aside).find('.h3-bar').addClass('h3-bar-show');
                 break;
             }
         }
@@ -39,14 +42,14 @@ window.addEventListener('scroll', () => {
 
 for (let bar of bars) {
     bar.addEventListener('click', () => {
-        bar.parentElement.style.right = -50 + "%";
+        bar.parentElement.style.right = -110 + "%";
         backgroundFade.style.visibility = "hidden";
     });
 }
 
 backgroundFade.addEventListener('click', () => {
     for (let aside of asides) {
-        aside.style.right = -50 + '%';
+        aside.style.right = -110 + '%';
     }
     backgroundFade.style.visibility = "hidden";
 });

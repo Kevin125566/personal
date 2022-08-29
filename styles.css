@@ -65,7 +65,7 @@ h2, .arrow {
 
 .sections {
     display: flex;
-    margin: 8em 12em;
+    margin: 8em 10%;
     text-transform: uppercase;
     cursor: pointer;
     justify-content: space-between;
@@ -98,16 +98,22 @@ section {
 }
 
 aside {
+    display: flex;
     height: 100vh;
     width: 43vw;
     position: fixed;
     color: rgb(235, 235, 235);
-    right: -50%;
+    right: -110%;
     top: 0;
     z-index: 300;
     background-color: #181d12;
-    transition: right 0.5s;
+    transition: right 0.5s cubic-bezier(.59,0,.33,1.01);
     overflow-y: auto;
+    flex-direction: column;
+}
+
+aside > * {
+    margin-left: 20%;
 }
 
 .background-fade {
@@ -145,6 +151,37 @@ aside {
     top: 1%;
 }
 
+h3 {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    display: inline-block;
+    overflow: hidden;
+    /* margin-left: 20%; */
+    margin-top: 10rem;
+    width: 6rem;
+}
+
+@keyframes bar-right {
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+.h3-bar {
+    margin-top: 1rem;
+    width: 6rem;
+    height: 4px;
+    background-color: rgb(235, 235, 235);
+    transform: translateX(-100%);
+}
+
+.h3-bar-show {
+    animation: bar-right 1s;
+    animation-delay: 0.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
 @media (max-width: 1575px) {
     h1, h2, .arrow {
         font-size: 130px;
@@ -153,6 +190,20 @@ aside {
 
 @media (max-width: 1375px) {
     h1, h2, .arrow {
-        font-size: 120px;
+        font-size: 100px;
+    }
+}
+
+@media (max-width: 768px) {
+    aside {
+        width: 100vw;
+    }
+
+    h1 {
+        font-size: 80px;
+    }
+
+    h2, .arrow {
+        font-size: 70px;
     }
 }
