@@ -94,7 +94,7 @@ section {
     height: fit-content;
     display: flex;
     flex-direction: column;
-    align-content: space-between;
+    /* align-content: space-between; */
 }
 
 aside {
@@ -205,5 +205,11 @@ h3 {
 
     h2, .arrow {
         font-size: 70px;
+    }
+}
+
+@media (max-width: 580px) {
+    h1, h2, .arrow {
+        font-size: 15vw; 
     }
 }
